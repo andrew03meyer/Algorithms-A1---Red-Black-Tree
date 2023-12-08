@@ -1,7 +1,7 @@
 /**
  * RBT
  * Red-Black Tree Insert
- * @author am2660
+ * @author INSERT_YOUR_USERNAME_HERE
  */
 import java.sql.SQLOutput;
 import java.util.*;
@@ -67,7 +67,7 @@ public class RBT {
 
     public void insert(int x) {
         root = nodeInsertData(root, x);
-        rebalance(getNodeFromValue(root, x));   //Check other 3 cases
+        //rebalance(getNodeFromValue(root, x));
         root.setColor(Node.Color.BLACK);        //Case 1 - x is the root
     }
 
@@ -159,6 +159,23 @@ public class RBT {
             h.setColor(Node.Color.RED);
         }
     }
+
+    public Node gettyParent(Node r, int x){
+        if(r == getNodeFromValue(root , x)){
+            return r;
+        }
+        else if (r !=null){
+            if(r.getLeft() != r){gettyParent(r.getLeft(), x);}
+            if(r.getRight() != r){gettyParent(r.getRight(), x);}
+        }
+        return r;
+    }
+    public Node getRoot(){
+        return root;
+    }
+    public void printNodeData(Node r){
+        System.out.println(r.getData());
+    }
     private Node getParent(Node r, int x){
         //If current node isn't the search node (isn't the root)
         if(x != r.getData()) {
@@ -228,7 +245,7 @@ public class RBT {
         //Checks if the node has a grandparent and an uncle
         if(getGrandparent(root, r.getData()) != null && getUncle(root, r.getData()) != null) {
 
-            //If the node's uncle is red and it's parent is red
+            //If the nodes uncle is red and it's parent is red
             if (getUncle(root, r.getData()).getColor() == Node.Color.RED && getParent(root, r.getData()).getColor() == Node.Color.RED) {
                 flipColors(getParent(root, r.getData()));
                 flipColors(getUncle(root, r.getData()));
@@ -238,7 +255,7 @@ public class RBT {
             }
         }
 
-        //Returns itself if case not met
+        //Returns itself
         return r;
 
     }
@@ -393,7 +410,6 @@ public class RBT {
 
         return r;
     }
-
     private void rebalance(Node r){
         /*
         * While a node to be compared has a red parent
