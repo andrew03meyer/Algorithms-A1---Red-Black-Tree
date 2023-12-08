@@ -9,7 +9,7 @@ public class RunRBT {
         tree1.insert(7);
         tree1.printNodeData(tree1.gettyParent(tree1.getRoot(), 7));
 
-        /*
+
         // Test 1
         LinkedList<Integer> l1 = new LinkedList<>();
         for (int i = 100; i > 0; i--) {
@@ -22,7 +22,7 @@ public class RunRBT {
             l2.add(i);
         }
         buildAndPrintTree(l2);
-        */
+
     }
 
     public static void buildAndPrintTree(List<Integer> inputs) {
